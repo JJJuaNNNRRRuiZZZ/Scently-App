@@ -1,6 +1,6 @@
 # Scently - App Móvil de Gestión e Inventario de Perfumería
 
-Proyecto desarrollado en Android Studio (Java) para la entrega del Momento 3. La aplicación gestiona el inventario de una boutique de fragancias integrando autenticación, base de datos en la nube con Firebase, captura multimedia, notificaciones y geolocalización de productos en mapa.
+Proyecto desarrollado en Android Studio para la entrega del Momento 3. La aplicación gestiona el inventario de una boutique de fragancias integrando autenticación, base de datos en la nube con Firebase, captura multimedia, notificaciones y geolocalización de productos en mapa.
 
 ---
 
