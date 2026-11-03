@@ -1,59 +1,53 @@
-#  Scently - Boutique de Fragancias Exclusivas
-> **Aplicación en ASC - Momento 3**  
+# Scently - App Móvil de Gestión e Inventario de Perfumería
+
+Proyecto desarrollado en Android Studio (Java) para la entrega del Momento 3. La aplicación gestiona el inventario de una boutique de fragancias integrando autenticación, base de datos en la nube con Firebase, captura multimedia, notificaciones y geolocalización de productos en mapa.
 
 ---
 
-## Descripción del Proyecto
-**Scently** es una solución móvil integral diseñada para la gestión de catálogo, inventario y ventas de perfumería fina. Combina una experiencia de usuario bajo una estética *Boutique* (paleta Ciruela `#4A1E35` y Champagne `#D4A373`) con un backend serverless, capacidades de geolocalización en tiempo real y comunicación mediante notificaciones push y locales.
+## Funcionalidades Implementadas
+
+### 1. Autenticación y Control de Roles (RBAC)
+* Inicio de sesión y registro de usuarios mediante **Firebase Authentication**.
+* Control de acceso según el rol del usuario (`Administrador` o `Vendedor`) almacenado en Firestore:
+  * **Administrador:** Acceso completo para registrar productos, editar información, eliminar del inventario y ver el mapa.
+  * **Vendedor:** Modo consulta para revisar el catálogo, realizar búsquedas y ver detalles sin permisos de edición.
+* Reglas de seguridad configuradas directamente en la consola de Firestore para impedir escrituras no autorizadas desde el cliente.
+
+### 2. Catálogo e Inventario (Firestore, Storage y API Externa)
+* **CRUD en tiempo real:** Sincronización continua de productos mediante `addSnapshotListener`.
+* **Cálculo de precios y ofertas:** Manejo de descuentos porcentuales, visualización del valor original y precio final rebajado.
+* **Búsqueda y filtros:** Búsqueda en vivo por nombre o código (ej. `PERF-01`) combinable con filtros por estado de oferta.
+* **Manejo de imágenes:** Captura desde cámara o selección en galería. La imagen se almacena en **Firebase Storage** y se renderiza en la lista usando la librería **Glide** (con respaldo de decodificación en Base64).
+* **Integración API REST:** Botón de sugerencia conectado al endpoint de fragancias de `DummyJSON` para autocompletar datos de prueba.
+
+### 3. Ubicación y Mapas
+* Integración de mapa interactivo utilizando **OSMDroid**.
+* Captura de coordenadas GPS en tiempo real mediante `FusedLocationProviderClient` al momento de guardar o editar una fragancia.
+* Marcadores en el mapa con el nombre y precio de cada producto registrado.
+* Botón para centrar la vista en la ubicación del dispositivo y alternador de capas (**Calles** y vista satelital con **Esri World Imagery**).
+
+### 4. Notificaciones
+* Notificaciones locales en la barra de estado al registrar o actualizar productos, con canal dedicado y soporte para Android 13+ (`POST_NOTIFICATIONS`).
+* Configuración base de servicio en segundo plano para Firebase Cloud Messaging (FCM).
 
 ---
 
-## Cumplimiento de los 5 Pilares Arquitectónicos
+## Cuentas de Prueba para Calificación
 
-### A. Autenticación y Control de Acceso por Roles (RBAC)
-- **Firebase Authentication:** Gestión de sesiones seguras por correo/contraseña, persistencia en `SharedPreferences` y cierre de sesión seguro (`signOut`).
-- **Seguridad y Roles:**
-  - `Administrador`: Acceso total para crear, editar, eliminar y consultar inventario, mapas y configuraciones.
-  - `Vendedor`: Vista en modo solo lectura del catálogo, sin acceso a formularios ni botones de modificación.
-- **Reglas de Seguridad Server-side:** Reglas activas en Cloud Firestore que restringen las operaciones de escritura y eliminación exclusivamente a usuarios con rol `Administrador`.
+Para validar la diferencia de permisos entre roles:
 
-### B. Cloud Firestore, CRUD Completo e Imágenes
-- **Sincronización Reactiva:** Escucha en tiempo real mediante `addSnapshotListener` para mantener el catálogo actualizado al instante.
-- **Operaciones CRUD:**
-  - Registro con código alfanumérico, descripción, precio formateado (`$ #,###`) e indicador de ofertas.
-  - Edición y eliminación vinculadas directamente por documento en Firestore.
-  - Filtro reactivo para aislar productos en promoción.
-- **Procesamiento de Imágenes:** Captura con cámara y galería, compresión y almacenamiento en Firebase Storage con renderizado optimizado en Glide y respaldo en Base64.
-- **Consumo de API REST Externa:** Integración con la categoría de fragancias de **DummyJSON** (`dummyjson.com/products/category/fragrances`) para la sugerencia y autocompletado inteligente de productos.
-
-### C. Geolocalización y Mapas en Tiempo Real
-- **OpenStreetMap (OSMDroid):** Motor de mapas independiente de alta disponibilidad con capas de calles y satelital mundial (**Esri World Imagery**).
-- **GPS en Vivo:** Seguimiento en tiempo real con `MyLocationNewOverlay` y botón de centrado.
-- **Coordenadas asociadas al inventario:** Captura de ubicación precisa con `FusedLocationProviderClient` al guardar o editar, mostrando marcadores interactivos en el mapa con título y precio.
-
-### D. Sistema de Notificaciones
-- **Notificaciones Locales:** Canales dedicados con prioridad alta que alertan en la bandeja del sistema al crear o actualizar productos (compatible con Android 13+).
-- **Firebase Cloud Messaging (FCM):** Servicio en segundo plano (`MiServicioFCM`) que procesa cargas útiles remotas y construye alertas visibles en pantalla con `NotificationCompat.Builder`.
-
-### E. Diseño, Usabilidad y UX Adaptativa
-- **Identidad Visual:** Tema claro forzado, paleta Ciruela y Champagne, formularios con `TextInputLayout`, layouts responsivos y soporte para orientación horizontal (`layout-land`).
-
----
-
-##  Credenciales de Prueba para Evaluación
-
-| Rol | Correo Electrónico | Contraseña | Permisos |
+| Rol | Correo | Contraseña | Permisos |
 | :--- | :--- | :--- | :--- |
-| **Administrador** | `admin@scently.com` | `123456` | CRUD total, carga de imágenes, mapas y configuración |
-| **Vendedor** | `jersy@scently.com` | `123456` | Solo lectura del catálogo, consulta de inventario |
-
-*(Nota: actualiza la columna de contraseñas con las claves reales asignadas en Firebase Auth).*
+| **Administrador** | `admin@scently.com` | *(tu contraseña aquí)* | CRUD total, fotos, mapa y administración |
+| **Vendedor** | `jersy@scently.com` | *(tu contraseña aquí)* | Solo lectura y consulta del catálogo |
 
 ---
 
-## Stack Tecnológico
-- **Lenguaje:** Java
-- **Plataforma:** Android SDK
-- **Backend:** Firebase (Auth, Firestore, Storage, Cloud Messaging)
-- **Mapas:** OSMDroid, Esri World Imagery, Fused Location Provider
-- **Redes / API REST:** DummyJSON Fragrances API
+## Tecnologías Utilizadas
+* **Lenguaje:** Java
+* **IDE:** Android Studio
+* **Backend:** Firebase (Authentication, Cloud Firestore, Cloud Storage, FCM)
+* **Librerías principales:**
+  * OSMDroid (mapas OpenStreetMap)
+  * Glide (carga y caché de imágenes)
+  * Google Play Services Location (GPS / Fused Location)
