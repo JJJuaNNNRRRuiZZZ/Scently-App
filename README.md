@@ -38,8 +38,8 @@ Para validar la diferencia de permisos entre roles:
 
 | Rol | Correo | Contraseña | Permisos |
 | :--- | :--- | :--- | :--- |
-| **Administrador** | `admin@scently.com` | 'Admin2026*' | CRUD total, fotos, mapa y administración |
-| **Vendedor** | `jersy@scently.com` | 'Jersy2026*' | Solo lectura y consulta del catálogo |
+| **Administrador** | `admin@scently.com` | Admin2026* | CRUD total, fotos, mapa y administración |
+| **Vendedor** | `jersy@scently.com` | Jersy2026* | Solo lectura y consulta del catálogo |
 
 ---
 
