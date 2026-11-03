@@ -1,6 +1,5 @@
 #  Scently - Boutique de Fragancias Exclusivas
-> **Aplicación Móvil Android - Momento 3**  
-> Proyecto desarrollado con arquitectura nativa en Java, Firebase y OpenStreetMap.
+> **Aplicación en ASC - Momento 3**  
 
 ---
 
