@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimario">#4A1E35</color>
+    <color name="colorSecundario">#D4A373</color>
+    <color name="black">#212529</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="scently_primary">#4A1E35</color>
+    <color name="scently_primary_dark">#321323</color>
+    <color name="scently_accent">#D4A373</color>
+    <color name="scently_terracotta">#C86D56</color>
+
+    <color name="scently_background">#F8F9FA</color>
+    <color name="scently_surface">#FFFFFF</color>
+    <color name="scently_text_primary">#212529</color>
+    <color name="scently_text_secondary">#6C757D</color>
+
+    <color name="scently_success">#2E7D32</color>
+    <color name="scently_warning">#ED6C02</color>
+    <color name="scently_error">#D32F2F</color>
+
+    <color name="colorFondo">@color/scently_background</color>
+    <color name="colorTextoSecundario">@color/scently_text_secondary</color>
+    <color name="colorAcentos">@color/scently_accent</color>
+</resources>

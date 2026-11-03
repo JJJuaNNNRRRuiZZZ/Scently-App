@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/scently_background"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            app:title="ADMIN"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.Scently.AdminHeader"
+            app:subtitleTextAppearance="@style/TextAppearance.Scently.EmployeeSubtitle"
+            app:subtitleCentered="true"
+            android:background="@drawable/bg_admin_header"
+            android:layout_margin="8dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdminUsuarios"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="44dp"
+            android:text="GESTIONAR USUARIOS"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:cornerRadius="8dp"
+            app:backgroundTint="@color/scently_accent"
+            app:strokeColor="@color/scently_accent"
+            app:strokeWidth="1dp"
+            android:textColor="@color/scently_primary"
+            android:textStyle="bold"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@color/scently_surface"
+            android:padding="8dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sugerencia de la API"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/scently_primary"
+                android:padding="8dp" />
+
+            <ProgressBar
+                android:id="@+id/pbCargaApi"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAutocompletarAPI"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RELLENAR"
+                android:textColor="@color/scently_primary"/>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFormularioProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/scently_surface"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Datos del producto"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/scently_primary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCodigo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/scently_accent"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCodigo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Codigo del producto"
+                        android:inputType="textCapCharacters">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/scently_accent"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Descripcion del producto"
+                        android:inputType="textCapSentences">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/scently_accent"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPrecio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Precio original ($)"
+                        android:inputType="numberDecimal">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/scently_accent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFamiliasOlfativas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Familias olfativas (elige varias)"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Público"
+                    android:textColor="@color/scently_primary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <Spinner
+                    android:id="@+id/spPublicoObjetivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:spinnerMode="dropdown" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swOferta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¿Producto en oferta?"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPorcentajeDescuento"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    app:boxStrokeColor="@color/scently_accent"
+                    app:hintTextColor="@color/scently_primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPorcentajeDescuento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Porcentaje de descuento"
+                        android:inputType="numberDecimal"
+                        android:maxLength="6" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPrecioCalculado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/scently_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+
+
+                <ProgressBar
+                    android:id="@+id/pbCarga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:id="@+id/imgProductoPreview"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/btn_tomar_foto"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdjuntarImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="CARGAR/TOMAR IMAGEN"
+                    app:backgroundTint="@color/scently_accent"
+                    app:cornerRadius="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCrearArticulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="GUARDAR PRODUCTO"
+                    app:cornerRadius="10dp"
+                    app:backgroundTint="@color/colorPrimario"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBuscarCatalogo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:boxStrokeColor="@color/scently_accent"
+            app:hintTextColor="@color/scently_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBuscarCatalogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar perfume por nombre o código"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFiltrar"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:text="FILTRAR"
+                android:textStyle="bold"
+                android:elevation="2dp"
+                android:textColor="@color/scently_primary"
+                app:backgroundTint="@color/scently_surface"
+                app:strokeColor="@color/scently_accent"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBuscar"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:text="BUSCAR"
+                android:textStyle="bold"
+                android:elevation="2dp"
+                android:textColor="@color/scently_primary"
+                app:backgroundTint="@color/scently_surface"
+                app:strokeColor="@color/scently_accent"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditar"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:text="EDITAR"
+                android:textColor="@color/scently_primary"
+                app:backgroundTint="@color/scently_accent"
+                app:strokeColor="@color/scently_accent"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBorrar"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:text="BORRAR"
+                android:textColor="@color/scently_error"
+                app:backgroundTint="@color/scently_surface"
+                app:strokeColor="@color/scently_error"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAbrirMapa"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="VER MAPA DE UBICACIONES"
+                android:textStyle="bold"
+                android:elevation="2dp"
+                app:strokeColor="@color/scently_accent"
+                android:textColor="@color/scently_primary"
+                app:cornerRadius="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inventario Actual"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="8dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProductos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/llEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:alpha="0.3"
+                    android:src="@drawable/logo_scently"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Aún no hay fragancias en el inventario"
+                    android:textSize="14sp"
+                    android:textColor="@color/scently_text_secondary"
+                    android:gravity="center" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCerrarSesion"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textSize="12sp"
+            android:text="CERRAR SESION"
+            android:textColor="@color/scently_primary"
+            app:backgroundTint="@color/scently_surface"
+            app:strokeColor="@color/scently_accent"
+            app:cornerRadius="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvCaja"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivItemFoto"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_caja" />
+
+            <TextView
+                android:id="@+id/tvItemCodigo"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimario"
+                android:backgroundTint="@color/colorPrimario"
+                android:gravity="center"
+                android:text="101"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvItemDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del producto"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                />
+
+            <TextView
+                android:id="@+id/tvItemPrecioOriginal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/scently_text_secondary"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvItemPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$ 0.0"
+                android:textColor="#388E3C"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <!--<TextView
+            android:id="@+id/tvItemEstado"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:text="DISPONIBLE"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50"
+            android:padding="4dp"
+            android:gravity="center"/>-->
+
+        <TextView
+            android:id="@+id/tvBadgeFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📷 Con Evidencia"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:textColor="#1565C0"
+            android:background="#E3F2FD"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:visibility="gone"
+            android:layout_marginTop="6dp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

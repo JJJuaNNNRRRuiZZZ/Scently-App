@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712407191677",
+    "project_id": "scently-687c3",
+    "storage_bucket": "scently-687c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712407191677:android:752a71e43bba9d0acfa114",
+        "android_client_info": {
+          "package_name": "com.example.appinventario"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGxDnNJ5zMOpTV88n_o0-EKnPfsGVMOhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
